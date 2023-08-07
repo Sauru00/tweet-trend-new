@@ -6,15 +6,25 @@ pipeline {
         }
     }
 environment {
-   PATH = "/opt/apache-maven-3.9.4/bin:$PATH"
+   PATH = "/opt/apache-maven-3.9.4/bin:$PATH" //path where mvn is lacated
 }    
 
    stages {
        stage("build") {
            steps {
-              sh 'mvn clean deploy'
+              echo"-------------build started------------"
+              sh 'mvn clean deploy -Dmaven.test.skip=true'
+               echo"------------build completed------------"
           }
         }
+
+       stage("test"){
+          steps{
+            echo"-------------unit test started------------"
+            sh 'mvn surefire-report:report' //The Surefire plugin generates reports for the test results in a format that is more human-readable than the default test output
+             echo"-------------unit test completed------------"
+          }
+       } 
     
     
         stage('SonarQube analysis') {

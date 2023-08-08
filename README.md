@@ -1,4 +1,4 @@
-# Ttrend application -for devops and sre
+# Ttrend application -for devops and
 
 This is a small applicaiton which contains main and test folders.  
 Main contains application code.  

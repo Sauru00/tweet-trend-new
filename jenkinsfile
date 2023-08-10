@@ -81,8 +81,8 @@ environment {
         }   
     }   
 
-      stages {
-        stage('Give Permissions to docker.sock') {
+      
+     stage('Give Permissions to docker.sock') {
             steps {
                 script {
                     // Change the path to docker.sock as per your system's configuration

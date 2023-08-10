@@ -82,16 +82,23 @@ environment {
     }   
 
       
-    // stage('Give Permissions to docker.sock') {
-      //      steps {
-        //        script {
-                    // Change the path to docker.sock as per your system's configuration
-          //          def dockerSocketPath = '/var/run/docker.sock'
+     
+        stage('Give Permissions to docker.sock') {
+            steps {
+                script {
+                    def dockerSocketPath = '/var/run/docker.sock'
 
-            //        sh "sudo chmod +x ${dockerSocketPath}"
-              //  }
-          //  }
-      //  }
+                    // Ensure that the Jenkins user is added to the docker group
+                    sh "sudo usermod -aG docker jenkins"
+
+                    // Restart Jenkins to apply changes (may vary based on your system)
+                    sh "sudo service jenkins restart"
+
+                    // Change permissions for docker.sock
+                    sh "sudo chmod +x ${dockerSocketPath}"
+                }
+            }
+        }
 
 
 

@@ -83,17 +83,17 @@ environment {
 
       
      
-       // stage('Give Permissions to docker.sock') {
-         //   steps {
-           //     script {
-             //       def dockerSocketPath = '/var/run/docker.sock'
+        stage('Give Permissions to docker.sock') {
+            steps {
+                script {
+                  def dockerSocketPath = '/var/run/docker.sock'
 
                 
-                    // Change permissions for docker.sock
-               //     sh "sudo chmod +x ${dockerSocketPath}"
-          //      }
-          //  }
-     //   }
+                     Change permissions for docker.sock
+                    sh "sudo chmod 777 ${dockerSocketPath}"
+                }
+            }
+        }
 
 
 

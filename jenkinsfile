@@ -89,7 +89,7 @@ environment {
                   def dockerSocketPath = '/var/run/docker.sock'
 
                 
-                     Change permissions for docker.sock
+                     //Change permissions for docker.sock
                     sh "sudo chmod 777 ${dockerSocketPath}"
                 }
             }

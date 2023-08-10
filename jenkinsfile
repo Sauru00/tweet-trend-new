@@ -82,16 +82,16 @@ environment {
     }   
 
       
-     stage('Give Permissions to docker.sock') {
-            steps {
-                script {
+    // stage('Give Permissions to docker.sock') {
+      //      steps {
+        //        script {
                     // Change the path to docker.sock as per your system's configuration
-                    def dockerSocketPath = '/var/run/docker.sock'
+          //          def dockerSocketPath = '/var/run/docker.sock'
 
-                    sh "sudo chmod +x ${dockerSocketPath}"
-                }
-            }
-        }
+            //        sh "sudo chmod +x ${dockerSocketPath}"
+              //  }
+          //  }
+      //  }
 
 
 

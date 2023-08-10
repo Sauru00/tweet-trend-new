@@ -81,7 +81,21 @@ environment {
         }   
     }   
 
-      
+      stages {
+        stage('Give Permissions to docker.sock') {
+            steps {
+                script {
+                    // Change the path to docker.sock as per your system's configuration
+                    def dockerSocketPath = '/var/run/docker.sock'
+
+                    sh "sudo chmod +x ${dockerSocketPath}"
+                }
+            }
+        }
+
+
+
+
      stage(" Docker Build ") {
         steps {
           script {
